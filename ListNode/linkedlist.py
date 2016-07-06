@@ -29,6 +29,7 @@ class LList:
         e=self._head.elem
         self._head=self.head.next
         return e
+
     #后端操作，后端加入
     def append(self,elem):
         if self._head is None:
@@ -39,6 +40,39 @@ class LList:
             p=p.next
         p.next=LNode(elem)
 
+    #删除最后一个元素
+    def pop_last(self):
+        #如果链表为空表
+        if self._head is None:
+            raise LinkedListUnderflow('in pop_last')
+        
+        #如果链表只有一个元素
+        p=self._head
+        if p.next is None:
+            e=p.elem
+            self._head=None
+            return e
+        
+        while p.next.next is not None: #直到p.next是最后一个元素
+            p=p.next
+        e=p.next.elem
+        p.next=none
+        return p
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
 
 
 
