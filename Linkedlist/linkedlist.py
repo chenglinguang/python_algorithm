@@ -109,6 +109,7 @@ class LList:
                 p=p.next
             count+=1
         raise ValueError('%s is not in linkedlist'%item)
+    
     #删除链表中的某元素
     def remove(self,item):
         p=self._head
@@ -141,6 +142,25 @@ class LList:
                p=p.next
            pre.next=temp
            temp.next=p 
+
+    #定义一个生成器函数yield，使链表对象成为迭代器
+    #for x in llist1.elements():
+    #    print(x)
+    def elements(self):
+        p=self._head
+        while p is not None:
+            yield p.elem
+            p=p.next
+
+    #筛选生成器
+    def filter(self,pred):
+        p=self._head
+        while p is not None:
+            if pred(p.elem):
+                yield p.elem
+            p=p.next
+
+
 
 mlist1=LList()
 for i in range(1,10):
