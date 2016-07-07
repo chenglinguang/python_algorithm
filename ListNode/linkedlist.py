@@ -59,6 +59,33 @@ class LList:
         p.next=none
         return p
 
+    def find(self,pred):
+        p=self._head
+        while p is not None:
+            if pred(p.elem):
+                return p.elem
+            p=p.next
+
+    #打印所有的节点元素
+    def print_all(self):
+        p=self._head
+        while p is not None:
+            print(p.elem)
+            print('end')
+            p=p.next
+
+
+
+mlist1=LList()
+for i in range(1,10):
+    mlist1.prepend(i)
+for i in range(11,20):
+    mlist1.append(i)
+mlist1.print_all()
+
+
+
+
 
 
 
