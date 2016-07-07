@@ -1,6 +1,6 @@
 #!/usr/bin/env python3 
 
-#!-*-encoding-*-
+#!-*-encoding:utf-8-*-
 
 #定义一个基于节点类的单链表对象类
 
