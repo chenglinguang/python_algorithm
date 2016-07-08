@@ -3,7 +3,6 @@
 #-*-encoding-*-
 
 class LCList() #循环单链表类
-
     def __init__(self):
         self._rear=None
     def is_empty(self):
