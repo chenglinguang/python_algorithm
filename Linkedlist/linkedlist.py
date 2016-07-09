@@ -159,8 +159,15 @@ class LList:
             if pred(p.elem):
                 yield p.elem
             p=p.next
-
-
+    #反转单链表
+    def rev(self):
+        p=None
+        while self._head is not None:
+            q=self._head
+            self._head=self._head.next
+            q.next=p
+            p=q
+        self._head=p
 
 mlist1=LList()
 for i in range(1,10):
