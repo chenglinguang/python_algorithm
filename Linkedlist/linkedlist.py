@@ -163,10 +163,10 @@ class LList:
     def rev(self):
         p=None
         while self._head is not None:
-            q=self._head
+            cur=self._head
             self._head=self._head.next
-            q.next=p
-            p=q
+            cur.next=p
+            p=cur
         self._head=p
 
 mlist1=LList()
