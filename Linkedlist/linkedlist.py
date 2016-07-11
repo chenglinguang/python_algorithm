@@ -161,6 +161,7 @@ class LList:
             p=p.next
     #反转单链表
     #从一个现有链表的头部依次去下，然后放到另外一个空链表的头部，就形成了反转
+    #最后把头指向p
     def rev(self):
         p=None
         while self._head is not None:
