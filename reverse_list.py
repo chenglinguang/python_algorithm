@@ -14,16 +14,20 @@ def get_reverse_1(llist):
         return new
  
 def get_reverse_2(llist):
-    llist.reverse()
-    return llist
+    #llist.reverse()
+    #return llist
+    new=list(reversed(llist))
+    return new
 
-
+def get_reverse_3(llist):
+    new=llist[::-1]
+    return new
 
 
                  
 print(get_reverse_1(l1))
 print(get_reverse_2(l1))
-
+print(get_reverse_3(l1))
 
 
  
