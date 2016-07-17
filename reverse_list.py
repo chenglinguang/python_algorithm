@@ -23,11 +23,22 @@ def get_reverse_3(llist):
     new=llist[::-1]
     return new
 
+def get_reverse_4(llist):
+    length=len(llist)
+    half=length//2
+    if half==0:
+        return llist
+    for i in range(half):
+        llist[i],llist[length-i-1]=llist[length-i-1],llist[i]
+    return llist
+
+            
 
                  
 print(get_reverse_1(l1))
 print(get_reverse_2(l1))
 print(get_reverse_3(l1))
+print(get_reverse_4(l1))
 
 
  
