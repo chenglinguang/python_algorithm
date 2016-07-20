@@ -5,7 +5,7 @@
 lst=[70,80,31,37,10,1,48,60,33,80]
 
 def selection_sort(lst):
-    for i in range(len(lst)):
+    for i in range(len(lst)-1): #只需要n-1(len(lst)-1)次即可
         min_index=i
         for j in range(i,len(lst)):
             if lst[min_index]>lst[j]:
@@ -32,7 +32,7 @@ def bubble_sort(lst):
 
         
 
-print(bubble_sort(lst))
+print(selection_sort(lst))
 
 
 
