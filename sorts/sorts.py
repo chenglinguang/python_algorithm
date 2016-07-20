@@ -30,6 +30,21 @@ def bubble_sort(lst):
                 lst[j-1],lst[j]=lst[j],lst[j-1]
     return lst
 
+def updated_bubble_sort(lst):
+    for i in range(len(lst)):
+        found=False
+        for j in range(1,len(lst)-i):
+            if lst[j-1]>lst[j]:
+                lst[j-1],lst[j]=lst[j],lst[j-1]
+                found=True
+        if found==Flase:
+            break
+
+
+
+
+
+
         
 
 print(selection_sort(lst))
