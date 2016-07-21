@@ -37,17 +37,43 @@ def updated_bubble_sort(lst):
             if lst[j-1]>lst[j]:
                 lst[j-1],lst[j]=lst[j],lst[j-1]
                 found=True
-        if found==Flase:
-            break
+        if found==False:
+            return lst
+    return lst
+
+
+#print(updated_bubble_sort(lst))
+def quick_sort(lst):
+    qsort_rec(lst,0,len(lst)-1)
+    
+def qsort_rec(lst,a,b):
+    if a>=b:
+        return 
+    i=a
+    j=b
+    pivot=lst[i]
+    while i<j:
+        while i<j and lst[j]>=pivot:
+            j-=1
+        if i<j:
+            lst[i]=lst[j]
+            i+=1
+        while i<j and lst[i]<=pivot:
+            i+=1
+        if i<j:
+            lst[j]=lst[i]
+            j-=1
+    lst[i]=pivot
+    qsort_rec(lst,a,i-1)
+    qsort_rec(lst,i+1,b)
+
+#quick_sort(lst)
+#print(lst)
 
 
 
-
-
-
-        
-
-print(selection_sort(lst))
+    
+    
 
 
 
