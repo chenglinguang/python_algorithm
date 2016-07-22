@@ -72,6 +72,76 @@ def qsort_rec(lst,a,b):
 #quick_sort(lst)
 #print(lst)
 
+#归并排序算法
+#把两个或者更多有序序列归并成为一个有序序列
+
+#merge(lfrom,lto,low,mid,high)实现对列表中连续排放的两个有序序列的归并工作。
+#注意是连续排放，并且是有序序列，归并到另外的列表中形成一个列表。
+#两个连续序列为：low--mid-1 , mid--high-1
+def merge(lfrom,lto,low,mid,high):
+    i,j,k=low,mid,low
+    while i <mid and j <high : #反复复制两个分段中最小的
+        if lfrom[i]<=lfrom[j]:
+            lto[k]=lfrom[i]
+            i+=1
+        else:
+            lto[k]=lfrom[j]
+            j=j+1
+        k+=1
+    while i<mid:
+        lto[k]=lfrom[i]
+        i+=1
+        k+=1
+    while j<high:
+        lto[k]=lfrom[j]
+        j+=1
+        k+=1
+
+#merge_pass实现一对对分段的一遍归并，它需要知道表长度（llen）和分段长度（slen）
+
+def merge_pass(lfrom,lto,llen,slen):
+    i=0
+    #处理一对对长度为slen的分段
+    while i+2*slen<llen:    #归并长slen的两断
+        merge(lfrom,lto,i,i+slen,i+2*slen)
+        i+=2*slen
+    if i+slen < llen: #剩下两断，后段长度小于slen
+        merge(lfrom,lto,i,i+slen,llen)
+    else:             #只剩下一段，复制到表lto中
+        for j in range(i,llen):
+            lto[j]=lfrom[j]
+
+#先安排一个同样长度的表，然后在两个表中往复一遍遍的做归并操作
+#整个归并完成是可能正好存放在结果templst中，这个时候再做一次merge_pass（循环中第二个merge_pass调用），就能把结果复制回原来的列表lst
+def merge_sort(lst):
+    slen,llen=1,len(lst)
+    templst=[None]*llen
+    while slen<llen:
+        merge_pass(lst,templst,llen,slen)
+        slen*=2
+        merge_pass(templst,lst,llen,slen)
+        slen*=2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     
